@@ -3,7 +3,7 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/home')
 def hello_world():
     return render_template('home.html')
 
@@ -11,6 +11,11 @@ def hello_world():
 @app.route('/user/<username>')
 def user(username):
     return "Hey there %s" % username
+
+
+@app.route('/id/<int:user_id>')
+def identification(user_id):
+    return "Your ID number is: %d" % user_id
 
 
 if __name__ == '__main__':
