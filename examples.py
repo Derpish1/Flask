@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from forms.forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
 
@@ -45,8 +46,22 @@ def form():
 # Passing Objects into Templates
 @app.route('/shopping')
 def shopping():
-    food = ['Cheese', 'Pasta', 'Beef']
+    food = ['Cheese', 'Pasta', 'Beef', 'Crumpet']
     return render_template('shopping.html', food=food)
+
+
+# Registration Page
+@app.route("/register")
+def register():
+    form = RegistrationForm()
+    return render_template('register.html', title='Register', form=form)
+
+
+# Login Page
+@app.route("/login")
+def login():
+    form = LoginForm()
+    return render_template('login.html', title='Login', form=form)
 
 
 if __name__ == '__main__':
