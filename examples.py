@@ -50,19 +50,5 @@ def shopping():
     return render_template('shopping.html', food=food)
 
 
-# Registration Page
-@app.route("/register")
-def register():
-    form = RegistrationForm()
-    return render_template('register.html', title='Register', form=form)
-
-
-# Login Page
-@app.route("/login")
-def login():
-    form = LoginForm()
-    return render_template('login.html', title='Login', form=form)
-
-
 if __name__ == '__main__':
     app.run()
